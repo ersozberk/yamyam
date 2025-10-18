@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yamaç'ın Dünyası</title>
+    <style>
+        /* --- Google Font Yüklemesi --- */
+        @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+        /* --- Genel Stil ve Renk Paleti --- */
+        :root {
+            --primary-color: #FF6B6B;
+            --secondary-color: #4ECDC4;
+            --accent-color: #FED766;
+            --dark-color: #2E2E2E;
+            --light-color: #F7F7F7;
+            --font-family: 'Press Start 2P', cursive;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif; /* Yedek font */
+            color: var(--dark-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background: linear-gradient(45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+        }
+        
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 0 2rem;
+        }
+
+        /* --- Başlık (Header) ve Navigasyon --- */
+        header {
+            background: rgba(46, 46, 46, 0.8);
+            backdrop-filter: blur(10px);
+            color: var(--light-color);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 3px solid var(--primary-color);
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: var(--font-family);
+            font-size: 1.5rem;
+            color: var(--accent-color);
+            text-shadow: 2px 2px var(--primary-color);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li a {
+            color: var(--light-color);
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            font-family: var(--font-family);
+            font-size: 0.8rem;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: var(--accent-color);
+            transform: translateY(-3px);
+        }
+        
+        /* --- Genel Bölüm Stilleri --- */
+        section {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            font-family: var(--font-family);
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 4rem;
+            color: var(--light-color);
+            text-shadow: 3px 3px 0 var(--dark-color), 6px 6px 0 var(--primary-color);
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        }
+
+        /* --- Hero Bölümü --- */
+        #hero {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            background: url('https://images.unsplash.com/photo-1519677100203-a0e668c92439?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=3600') no-repeat center center/cover;
+            background-blend-mode: overlay;
+            background-color: rgba(0,0,0,0.5);
+            position: relative;
+        }
+
+        #hero h1 {
+            font-family: var(--font-family);
+            font-size: 4rem;
+            line-height: 1.2;
+            text-shadow: 4px 4px 0 var(--primary-color);
+        }
+
+        /* --- Hakkında Bölümü --- */
+        #hakkinda .card {
+            max-width: 800px;
+            margin: auto;
+            text-align: center;
+            font-size: 1.2rem;
+        }
+        
+        #hakkinda .card h3 {
+             font-family: var(--font-family);
+             color: var(--primary-color);
+             margin-bottom: 1rem;
+        }
+
+        /* --- Projelerim Bölümü --- */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: var(--light-color);
+            border-radius: 10px;
+            overflow: hidden;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        .project-card:hover {
+            transform: scale(1.05);
+        }
+        
+        .project-card h3 {
+            font-family: var(--font-family);
+            background: var(--secondary-color);
+            color: white;
+            padding: 1rem;
+        }
+
+        .project-card p {
+            padding: 1.5rem;
+            font-size: 0.9rem;
+        }
+        
+        /* --- Soru Sor (Çevirmen) Bölümü --- */
+        #soru-sor .card {
+            max-width: 600px;
+            margin: auto;
+            text-align: center;
+        }
+        
+        #soru-sor input, #soru-sor button {
+            width: 100%;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border-radius: 8px;
+            border: 2px solid #ddd;
+            font-family: var(--font-family);
+            font-size: 0.8rem;
+        }
+        
+        #soru-sor button {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        #soru-sor button:hover {
+            background: #e15a5a;
+        }
+        
+        #translationResult {
+            margin-top: 1rem;
+            font-size: 1.5rem;
+            color: var(--secondary-color);
+            font-weight: bold;
+        }
+
+        /* --- İzleme ve Oyun Bölümü --- */
+        #izleme .video-container, #oyunum .game-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+            overflow: hidden;
+            max-width: 100%;
+            background: #000;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            margin: auto;
+            max-width: 854px;
+        }
+        
+        .video-container iframe, .game-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border:0;
+        }
+        
+        #oyunum .game-container {
+            padding-bottom: 82.88%; /* 485/402 ratio */
+            max-width: 485px;
+        }
+
+        /* --- İletişim Bölümü --- */
+        #iletisim form {
+            max-width: 700px;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        #iletisim .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        #iletisim label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--dark-color);
+            font-family: var(--font-family);
+            font-size: 0.8rem;
+        }
+        
+        #iletisim input, #iletisim textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #ccc;
+            border-radius: 8px;
+            background: var(--light-color);
+            font-family: 'Arial', sans-serif;
+            font-size: 1rem;
+        }
+
+        #iletisim button {
+            padding: 1rem;
+            background: var(--secondary-color);
+            border: none;
+            color: white;
+            font-family: var(--font-family);
+            font-size: 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        
+        #iletisim button:hover {
+            transform: scale(1.05);
+        }
+        
+        /* --- Footer --- */
+        footer {
+            background: var(--dark-color);
+            color: var(--light-color);
+            text-align: center;
+            padding: 2rem 0;
+            font-family: var(--font-family);
+            font-size: 0.7rem;
+        }
+
+        /* --- Mobil Uyum (Responsive) --- */
+        @media(max-width: 768px) {
+            header .container {
+                flex-direction: column;
+            }
+            nav {
+                margin-top: 1rem;
+            }
+            #hero h1 {
+                font-size: 2.5rem;
+            }
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <div class="logo">Yamaç'ın Dünyası</div>
+            <nav>
+                <ul>
+                    <li><a href="#hero">Ana Sayfa</a></li>
+                    <li><a href="#hakkinda">Hakkında</a></li>
+                    <li><a href="#projelerim">Projelerim</a></li>
+                    <li><a href="#iletisim">İletişim</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="hero">
+            <div class="container">
+                <h1>Merhaba! Burası Benim Dijital Oyun Alanım.</h1>
+            </div>
+        </section>
+
+        <section id="hakkinda">
+            <div class="container">
+                <h2 class="section-title">Hakkımda</h2>
+                <div class="card">
+                    <h3>Ben Yamaç!</h3>
+                    <p>
+                        10 yaşındayım ve İkin Koleji'nde öğrenciyim. Kod yazmayı, oyun oynamayı ve yeni şeyler yaratmayı çok seviyorum. Bu web sitesi, benim dijital dünyamdaki maceralarımın bir başlangıcı!
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="projelerim">
+            <div class="container">
+                <h2 class="section-title">Projelerim</h2>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <h3>Uzay Macerası Oyunu</h3>
+                        <p>Scratch kullanarak yaptığım bu oyunda, bir uzay gemisiyle meteorlardan kaçıp puan topluyorsun. Harika animasyonlar ve ses efektleri ekledim!</p>
+                    </div>
+                    <div class="project-card">
+                        <h3>Robotik El Projesi</h3>
+                        <p>Arduino ve birkaç motor kullanarak kartondan bir robotik el yaptım. Bilgisayardan gönderdiğim komutlarla parmaklarını hareket ettirebiliyor.</p>
+                    </div>
+                    <div class="project-card">
+                        <h3>Bu Web Sitesi!</h3>
+                        <p>Şu anda gezdiğin bu site de benim projelerimden biri! HTML, CSS ve JavaScript kullanarak fikirlerimi hayata geçirdim.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="soru-sor">
+            <div class="container">
+                 <h2 class="section-title">Kelime Çevirici</h2>
+                 <div class="card">
+                    <input type="text" id="wordInput" placeholder="Türkçe veya İngilizce bir kelime yaz...">
+                    <button id="translateBtn">Çevir</button>
+                    <div id="translationResult"></div>
+                 </div>
+            </div>
+        </section>
+        
+        <section id="izleme">
+            <div class="container">
+                <h2 class="section-title">Biraz Mola Ver</h2>
+                <div class="video-container">
+                     <iframe src="https://www.youtube.com/embed/BHACKCNDMW8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            </div>
+        </section>
+
+        <section id="oyunum">
+            <div class="container">
+                <h2 class="section-title">Oyunumu Oyna!</h2>
+                <div class="game-container">
+                    <iframe src="https://scratch.mit.edu/projects/1230577085/embed" allowtransparency="true" width="485" height="402" frameborder="0" scrolling="no" allowfullscreen></iframe>
+                </div>
+            </div>
+        </section>
+        
+        <section id="iletisim">
+             <div class="container">
+                <h2 class="section-title">Bana Mesaj Gönder</h2>
+                <div class="card">
+                    <form id="contact-form">
+                        <div class="form-group">
+                            <label for="name">İsim</label>
+                            <input type="text" id="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">E-posta</label>
+                            <input type="email" id="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Mesajın</label>
+                            <textarea id="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit">Gönder</button>
+                    </form>
+                </div>
+             </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Yamaç'ın Dünyası. Tüm hakları saklıdır.</p>
+        </div>
+    </footer>
+    
+    <script>
+        // --- KELİME ÇEVİRİCİ JAVASCRIPT ---
+        const translateBtn = document.getElementById('translateBtn');
+        const wordInput = document.getElementById('wordInput');
+        const translationResult = document.getElementById('translationResult');
+        
+        const dictionary = {
+            'kedi': 'cat',
+            'köpek': 'dog',
+            'ev': 'house',
+            'araba': 'car',
+            'bilgisayar': 'computer',
+            'kitap': 'book',
+            'okul': 'school',
+            'cat': 'kedi',
+            'dog': 'köpek',
+            'house': 'ev',
+            'car': 'araba',
+            'computer': 'bilgisayar',
+            'book': 'kitap',
+            'school': 'okul'
+        };
+        
+        translateBtn.addEventListener('click', () => {
+            const word = wordInput.value.toLowerCase().trim();
+            if (dictionary[word]) {
+                translationResult.textContent = `Çevirisi: ${dictionary[word]}`;
+            } else {
+                translationResult.textContent = 'Bu kelime sözlükte yok!';
+            }
+        });
+
+        // Enter tuşuna basınca da çeviri yap
+        wordInput.addEventListener('keyup', function(event) {
+            if (event.key === "Enter") {
+                translateBtn.click();
+            }
+        });
+
+        // --- İLETİŞİM FORMU JAVASCRIPT ---
+        const contactForm = document.getElementById('contact-form');
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault(); // Formun gerçekten gönderilmesini engelle
+            
+            const name = document.getElementById('name').value;
+            
+            if(name.trim() === '' || document.getElementById('email').value.trim() === '' || document.getElementById('message').value.trim() === '') {
+                 alert('Lütfen tüm alanları doldurun!');
+                 return;
+            }
+            
+            alert(`Harika, ${name}! Mesajın başarıyla gönderildi (Bu bir simülasyondur).`);
+            contactForm.reset(); // Formu temizle
+        });
+    </script>
+
+</body>
+</html>
