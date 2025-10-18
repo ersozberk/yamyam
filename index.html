@@ -118,6 +118,12 @@
         .media-container { position: relative; width: 100%; padding-bottom: 56.25%; /* 16:9 Aspect Ratio */ height: 0; margin: 20px 0; }
         .media-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 3px solid var(--secondary-color); border-radius: 10px; }
         
+        /* Yeni Medya Çerçeveleme Stili (Video ve Oyunları ayırmak için) */
+        .video-wrapper { margin-bottom: 40px; }
+        .video-wrapper:last-child { margin-bottom: 0; }
+        .video-wrapper h4 { font-size: 26px; color: var(--primary-color); margin-bottom: 15px; text-decoration: underline; }
+
+
         .game-wrapper { margin-bottom: 40px; }
         .game-wrapper:last-child { margin-bottom: 0; }
         .game-wrapper h4 { font-size: 26px; color: var(--primary-color); margin-bottom: 15px; text-decoration: underline; }
@@ -207,10 +213,25 @@
 
             <section id="izleme">
                  <div class="card">
-                    <h2>Minecraft Filmi Fragmanı</h2>
-                    <p>Heyecanla beklenen Minecraft filminin fragmanını buradan izleyebilirsin!</p>
-                    <div class="media-container">
-                        <iframe src="https://www.youtube.com/embed/8B1EtVPBSMw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <h2>İzleme Keyfi</h2>
+                    <p>Sevdiğin filmlerden fragmanlar ve eğlenceli çizgi film bölümleri seni bekliyor!</p>
+
+                    <div class="video-wrapper">
+                        <h4>Minecraft Filmi Fragmanı</h4>
+                        <div class="media-container">
+                            <iframe src="https://www.youtube.com/embed/8B1EtVPBSMw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                    </div>
+
+                    <div class="video-wrapper">
+                        <h4>Bluey Dizisi Bölümleri</h4>
+                        <p>Bluey, Bingo ve aileleriyle eğlenceli maceralara katıl!</p>
+                        <div class="media-container" style="margin-bottom: 20px;">
+                            <iframe src="https://www.youtube.com/embed/Xw3-3jQQMBk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        <div class="media-container">
+                             <iframe src="https://www.youtube.com/embed/AMppfY8aF6M" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
                     </div>
                  </div>
             </section>
