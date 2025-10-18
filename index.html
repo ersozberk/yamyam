@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yamaç'ın Dünyası</title>
     <style>
-        /* CSS KODLARI BURADA */
+        /* CSS KODLARI BURADA (ÖNCEKİ KOD İLE AYNI) */
         @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
 
         :root {
@@ -275,32 +275,64 @@
     </footer>
 
     <script>
-        // JAVASCRIPT KODLARI BURADA (ÖNCEKİ KOD İLE AYNI)
         const dictionaryTrToEn = {
-            "ağaç": "tree", "aile": "family", "anne": "mother", "araba": "car", "arkadaş": "friend",
-            "ay": "moon", "baba": "father", "balık": "fish", "ben": "i", "beyaz": "white",
-            "bilgisayar": "computer", "bir": "one", "bugün": "today", "büyük": "big", "cam": "glass",
-            "cevap": "answer", "dağ": "mountain", "deniz": "sea", "ders": "lesson", "doğru": "correct",
-            "dün": "yesterday", "dünya": "world", "ekmek": "bread", "elma": "apple", "erkek": "man",
-            "ev": "house", "gece": "night", "gelmek": "to come", "gemi": "ship", "genç": "young",
-            "gitmek": "to go", "göl": "lake", "görmek": "to see", "gökyüzü": "sky", "gül": "rose",
-            "gün": "day", "güneş": "sun", "güzel": "beautiful", "hafta": "week", "hava": "weather",
-            "hayat": "life", "hayvan": "animal", "hızlı": "fast", "içmek": "to drink", "iki": "two",
-            "insan": "human", "isim": "name", "istemek": "to want", "iş": "work", "ışık": "light",
-            "kadın": "woman", "kalem": "pen", "kapı": "door", "kardeş": "sibling", "karpuz": "watermelon",
-            "kedi": "cat", "kırmızı": "red", "kitap": "book", "kolay": "easy", "köpek": "dog",
-            "küçük": "small", "mavi": "blue", "merhaba": "hello", "meyve": "fruit", "mutlu": "happy",
-            "nehir": "river", "oda": "room", "okul": "school", "orman": "forest", "oyun": "game",
-            "öğrenci": "student", "öğretmen": "teacher", "para": "money", "pencere": "window",
-            "renk": "color", "saat": "clock", "sabah": "morning", "sarı": "yellow", "sen": "you",
-            "sevmek": "to love", "sıcak": "hot", "siyah": "black", "soğuk": "cold", "soru": "question",
-            "su": "water", "şehir": "city", "şimdi": "now", "tatlı": "sweet", "tavşan": "rabbit",
-            "teşekkürler": "thank you", "toprak": "earth", "üç": "three", "üzgün": "sad",
-            "ve": "and", "veya": "or", "yapmak": "to do", "yarın": "tomorrow", "yaşlı": "old",
-            "yavaş": "slow", "yemek": "food", "yeni": "new", "yeşil": "green", "yıldız": "star",
-            "yol": "road", "zaman": "time", "zor": "difficult"
+            "a": "a", "acele etmek": "hurry", "acı": "pain", "aç": "hungry", "açık": "open", "açıklamak": "explain",
+            "ad": "name", "ada": "island", "adam": "man", "adres": "address", "ağaç": "tree", "ağır": "heavy",
+            "ağız": "mouth", "aile": "family", "akıllı": "smart", "akşam": "evening", "almak": "take", "alt": "bottom",
+            "altın": "gold", "ama": "but", "anahtar": "key", "anlamak": "understand", "anne": "mother", "araba": "car",
+            "aramak": "search", "arasında": "between", "arkadaş": "friend", "arka": "back", "artık": "anymore",
+            "asla": "never", "aşağı": "down", "at": "horse", "ateş": "fire", "ay": "moon", "ayak": "foot",
+            "aynı": "same", "ayrıca": "also", "baba": "father", "bacak": "leg", "bağırmak": "shout", "bahçe": "garden",
+            "bal": "honey", "balık": "fish", "bardak": "glass", "basit": "simple", "baş": "head", "başlamak": "start",
+            "bazen": "sometimes", "bebek": "baby", "beklemek": "wait", "belki": "maybe", "ben": "i", "benzer": "similar",
+            "beyaz": "white", "bıçak": "knife", "bırakmak": "leave", "biber": "pepper", "bilgisayar": "computer",
+            "bilmek": "know", "bina": "building", "bir": "one", "biraz": "a little", "birlikte": "together",
+            "bitirmek": "finish", "boş": "empty", "boya": "paint", "boyun": "neck", "bozuk": "broken", "böyle": "like this",
+            "bu": "this", "bugün": "today", "bulmak": "find", "bulut": "cloud", "burun": "nose", "buz": "ice",
+            "büyük": "big", "cam": "glass", "canlı": "alive", "cevap": "answer", "çabuk": "quick", "çalmak": "steal",
+            "çalışmak": "work", "canavar": "monster", "çanta": "bag", "çatal": "fork", "çay": "tea", "çiçek": "flower",
+            "çiftlik": "farm", "çikolata": "chocolate", "çirkin": "ugly", "çocuk": "child", "çok": "very",
+            "dağ": "mountain", "daha": "more", "daire": "circle", "dakika": "minute", "dans": "dance", "dar": "narrow",
+            "davranmak": "behave", "dede": "grandfather", "defter": "notebook", "değil": "not", "değiştirmek": "change",
+            "denemek": "try", "deniz": "sea", "derece": "degree", "deri": "skin", "derin": "deep", "ders": "lesson",
+            "devam etmek": "continue", "dışarı": "outside", "diğer": "other", "dil": "language", "dinlemek": "listen",
+            "diş": "tooth", "doğru": "correct", "doğum günü": "birthday", "doktor": "doctor", "dolap": "cupboard",
+            "dolu": "full", "domates": "tomato", "dondurma": "ice cream", "dost": "friend", "dönmek": "return",
+            "dört": "four", "düşmek": "fall", "düşünmek": "think", "duvar": "wall", "duymak": "hear", "duygu": "feeling",
+            "dün": "yesterday", "dünya": "world", "düz": "straight", "düğme": "button", "dükkan": "shop",
+            "eğer": "if", "eğlenceli": "fun", "ekmek": "bread", "el": "hand", "elbise": "dress", "elma": "apple",
+            "en": "most", "enerji": "energy", "erken": "early", "erkek": "man", "eski": "old", "eşya": "stuff",
+            "et": "meat", "ev": "house", "evet": "yes", "fabrika": "factory", "fakat": "but", "farklı": "different",
+            "fare": "mouse", "film": "movie", "fincan": "cup", "fiyat": "price", "fotoğraf": "photo", "futbol": "football",
+            "gazete": "newspaper", "gece": "night", "geç": "late", "gelmek": "come", "gemi": "ship", "genç": "young",
+            "geniş": "wide", "gerçek": "real", "geri": "back", "getirmek": "bring", "gezegen": "planet", "gibi": "like",
+            "girmek": "enter", "gitmek": "go", "giymek": "wear", "göl": "lake", "gökyüzü": "sky", "göndermek": "send",
+            "görmek": "see", "göstermek": "show", "göz": "eye", "gözlük": "glasses", "gülmek": "laugh", "gümüş": "silver",
+            "gün": "day", "güneş": "sun", "gürültü": "noise", "güçlü": "strong", "güzel": "beautiful",
+            "hafta": "week", "hala": "still", "halı": "carpet", "hangi": "which", "hasta": "sick", "hata": "mistake",
+            "hava": "weather", "havlu": "towel", "havuç": "carrot", "havuz": "pool", "hayat": "life", "hayvan": "animal",
+            "hazır": "ready", "hediye": "gift", "hemşire": "nurse", "henüz": "yet", "her": "every", "herkes": "everyone",
+            "her zaman": "always", "hesap": "bill", "hızlı": "fast", "hiç": "never", "hikaye": "story",
+            "hissetmek": "feel", "hoş": "nice", "ıslak": "wet", "ışık": "light", "iç": "inside", "içmek": "drink",
+            "için": "for", "iğne": "needle", "iki": "two", "ile": "with", "ilk": "first", "inmek": "get off",
+            "insan": "human", "ip": "rope", "isim": "name", "istemek": "want", "iş": "work", "işaret": "sign",
+            "itmek": "push", "iyi": "good", "izin": "permission", "jeton": "coin", "kahve": "coffee", "kahverengi": "brown",
+            "kalabalık": "crowded", "kaldırmak": "lift", "kalem": "pen", "kalp": "heart", "kan": "blood",
+            "kapalı": "closed", "kapı": "door", "kar": "snow", "kardeş": "sibling", "karşı": "against",
+            "karpuz": "watermelon", "kaşık": "spoon", "kat": "floor", "kavga": "fight", "kaybetmek": "lose",
+            "kedi": "cat", "kelime": "word", "kemik": "bone", "kenar": "edge", "kendi": "own", "kağıt": "paper",
+            "kırmızı": "red", "kısa": "short", "kış": "winter", "kız": "girl", "kızgın": "angry", "kim": "who",
+            "kirli": "dirty", "kitap": "book", "koku": "smell", "kol": "arm", "kolay": "easy", "koltuk": "armchair",
+            "komik": "funny", "konuşmak": "speak", "korkmak": "be afraid", "koşmak": "run", "kötü": "bad",
+            "köy": "village", "köpek": "dog", "köprü": "bridge", "köşe": "corner", "kral": "king", "kulak": "ear",
+            "kullanmak": "use", "kum": "sand", "kuru": "dry", "kutu": "box", "kuzey": "north", "kuş": "bird",
+            "küçük": "small", "kürek": "shovel", "lamba": "lamp", "limon": "lemon", "lütfen": "please",
+            "mavi": "blue", "merdiven": "stairs", "merhaba": "hello", "merkez": "center", "meşgul": "busy",
+            "meyve": "fruit", "mide": "stomach", "milyon": "million", "mor": "purple", "mutfak": "kitchen",
+            "mutlu": "happy", "müzik": "music", "nasıl": "how", "ne": "what", "neden": "why", "nehir": "river",
         };
         
+        // Diğer kodlar burada devam ediyor.
         const dictionaryEnToTr = {};
         for (const key in dictionaryTrToEn) {
             dictionaryEnToTr[dictionaryTrToEn[key]] = key;
