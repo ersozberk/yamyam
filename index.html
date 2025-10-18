@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yamaç'ın Dünyası</title>
     <style>
-        /* CSS KODLARI BURADA (ÖNCEKİ KOD İLE AYNI) */
+        /* CSS KODLARI BURADA */
         @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
 
         :root {
@@ -146,36 +146,222 @@
 </head>
 <body>
 
-    <header class="main-header"></header>
+    <header class="main-header">
+        <a href="#hero" class="logo">Yamaç'ın Kodu</a>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="#hero">Ana Sayfa</a></li>
+                <li><a href="#hakkinda">Hakkında</a></li>
+                <li><a href="#projelerim">Projelerim</a></li>
+                <li><a href="#iletisim">İletişim</a></li>
+            </ul>
+        </nav>
+    </header>
 
     <main>
-        <section id="hero" class="hero"></section>
+        <section id="hero" class="hero">
+            <div class="hero-content">
+                <h1>Merhaba, ben Yamaç!</h1>
+                <p>Hayallerini koda dönüştüren bir maceraperest.</p>
+            </div>
+        </section>
         <div class="container">
-            <section id="hakkinda"></section>
-            <section id="projelerim"></section>
-            <section id="ceviri"></section>
-            <section id="soru-cevap"></section>
-            <section id="izleme"></section>
-            <section id="oyunlarim"></section>
-            <section id="iletisim"></section>
+            <section id="hakkinda">
+                <div class="card">
+                    <h2>Ben Kimim?</h2>
+                    <p>
+                        Adım Yamaç, 10 yaşındayım ve İkin Koleji'nde öğrenciyim.
+                        Bilgisayarlar, oyunlar ve yeni şeyler yaratmak en büyük tutkum.
+                        Bu web sitesi, benim dijital dünyadaki ilk büyük adımım!
+                    </p>
+                </div>
+            </section>
+            <section id="projelerim">
+                <div class="card">
+                    <h2>Projelerim</h2>
+                    <div class="projects-grid">
+                        <div class="project-card">
+                            <h3>🤖 Robotik Kodlama Macerası</h3>
+                            <p>LEGO Mindstorms setimle yaptığım ve basit komutlarla hareket ettirdiğim robotum. Engellerden kaçabiliyor ve renkleri tanıyabiliyor.</p>
+                        </div>
+                        <div class="project-card">
+                            <h3>🎨 Piksel Sanatı Galerisi</h3>
+                            <p>Piskel gibi araçlar kullanarak yarattığım 8-bit karakterler ve animasyonlar. Eski video oyunlarının ruhunu yakalamaya çalıştım.</p>
+                        </div>
+                        <div class="project-card">
+                            <h3>🎵 Basit Müzik Oluşturucu</h3>
+                            <p>Scratch kullanarak farklı notalara tıklayarak kendi müziğini yapabileceğin basit bir uygulama geliştirdim. Yaratıcılığını konuştur!</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section id="ceviri">
+                <div class="card">
+                    <h2>Hızlı Çevirmen</h2>
+                    <div class="interactive-box">
+                        <input type="text" id="wordInput" placeholder="Bir kelime yaz...">
+                        <div>
+                            <button class="btn" id="trToEnBtn">Türkçe'den İngilizce'ye</button>
+                            <button class="btn" id="enToTrBtn">İngilizce'den Türkçe'ye</button>
+                        </div>
+                        <p id="translationResult" class="result-text">Çeviri burada görünecek.</p>
+                    </div>
+                </div>
+            </section>
+            <section id="soru-cevap">
+                <div class="card">
+                    <h2>Bana Bir Soru Sor</h2>
+                    <p>Merak ettiğin bir şey var mı? Belki cevabını biliyorumdur!</p>
+                    <div class="interactive-box">
+                        <input type="text" id="questionInput" placeholder="Sorunu buraya yaz...">
+                        <button class="btn" id="askBtn">Cevapla!</button>
+                        <p id="answerResult" class="result-text">Cevabım burada görünecek.</p>
+                    </div>
+                </div>
+            </section>
+            <section id="izleme">
+                 <div class="card">
+                    <h2>İzleme Keyfi</h2>
+                    <p>Sevdiğin filmlerden fragmanlar ve eğlenceli çizgi film bölümleri seni bekliyor!</p>
+
+                    <div class="video-wrapper">
+                        <h4>Minecraft Filmi Fragmanı</h4>
+                        <div class="media-container">
+                            <iframe src="https://www.youtube.com/embed/8B1EtVPBSMw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                    </div>
+
+                    <div class="video-wrapper">
+                        <h4>Bluey Dizisi Türkçe Bölümleri</h4>
+                        <p>Bluey, Bingo ve aileleriyle eğlenceli maceralara Türkçe olarak katıl!</p>
+                        <div class="media-container">
+                            <iframe src="https://www.youtube.com/embed/7eoDtneR3Os" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                 </div>
+            </section>
+            <section id="oyunlarim">
+                <div class="card">
+                    <h2>Oyunlarım</h2>
+                    <p>İşte Scratch'te yaptığım oyunlar. Denemek ister misin?</p>
+                    
+                    <div class="game-wrapper">
+                        <h4>Oyun 1: Zıplayan Top</h4>
+                        <div class="media-container">
+                            <iframe src="https://scratch.mit.edu/projects/1230577085/embed" allowtransparency="true" width="485" height="402" frameborder="0" scrolling="no" allowfullscreen></iframe>
+                        </div>
+                    </div>
+
+                    <div class="game-wrapper">
+                        <h4>Oyun 2: Uzaylı Macerası</h4>
+                        <div class="media-container">
+                            <iframe src="https://scratch.mit.edu/projects/1188222105/embed" allowtransparency="true" width="485" height="402" frameborder="0" scrolling="no" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section id="iletisim">
+                <div class="card">
+                    <h2>Bana Ulaş</h2>
+                    <p>Fikirlerin veya projeler hakkında konuşmak istersen, aşağıdaki formu doldurabilirsin.</p>
+                    <form class="contact-form" action="mailto:senin-emailin@example.com?subject=Web Siteden Mesaj" method="post" enctype="text/plain">
+                        <input type="text" name="isim" placeholder="Adın" required>
+                        <input type="email" name="email" placeholder="E-posta Adresin" required>
+                        <textarea name="mesaj" placeholder="Mesajın..." required></textarea>
+                        <button type="submit" class="btn">Gönder</button>
+                    </form>
+                </div>
+            </section>
         </div>
     </main>
     
-    <footer class="main-footer"></footer>
+    <footer class="main-footer">
+        <p>&copy; 2025 Yamaç'ın Dünyası | Tüm hakları saklıdır.</p>
+    </footer>
 
     <script>
         // --- ÇEVİRMEN BÖLÜMÜ ---
-        // Çevirmen kodu ve sözlüğü burada yer alıyor, okunabilirlik için kısaltıldı.
-        // Tam kod indirildiğinde bu kısım dolu olacaktır.
-        
+        const dictionaryTrToEn = {
+            "a": "a", "acele etmek": "hurry", "acı": "pain", "aç": "hungry", "açık": "open", "açıklamak": "explain",
+            "ad": "name", "ada": "island", "adam": "man", "adres": "address", "ağaç": "tree", "ağır": "heavy",
+            "ağız": "mouth", "aile": "family", "akıllı": "smart", "akşam": "evening", "almak": "take", "alt": "bottom",
+            "altın": "gold", "ama": "but", "anahtar": "key", "anlamak": "understand", "anne": "mother", "araba": "car",
+            "aramak": "search", "arasında": "between", "arkadaş": "friend", "arka": "back", "artık": "anymore",
+            "asla": "never", "aşağı": "down", "at": "horse", "ateş": "fire", "ay": "moon", "ayak": "foot",
+            "aynı": "same", "ayrıca": "also", "baba": "father", "bacak": "leg", "bağırmak": "shout", "bahçe": "garden",
+            "bal": "honey", "balık": "fish", "bardak": "glass", "basit": "simple", "baş": "head", "başlamak": "start",
+            "bazen": "sometimes", "bebek": "baby", "beklemek": "wait", "belki": "maybe", "ben": "i", "benzer": "similar",
+            "beyaz": "white", "bıçak": "knife", "bırakmak": "leave", "biber": "pepper", "bilgisayar": "computer",
+            "bilmek": "know", "bina": "building", "bir": "one", "biraz": "a little", "birlikte": "together",
+            "bitirmek": "finish", "boş": "empty", "boya": "paint", "boyun": "neck", "bozuk": "broken", "böyle": "like this",
+            "bu": "this", "bugün": "today", "bulmak": "find", "bulut": "cloud", "burun": "nose", "buz": "ice",
+            "büyük": "big", "cam": "glass", "canlı": "alive", "cevap": "answer", "çabuk": "quick", "çalmak": "steal",
+            "çalışmak": "work", "canavar": "monster", "çanta": "bag", "çatal": "fork", "çay": "tea", "çiçek": "flower",
+            "çiftlik": "farm", "çikolata": "chocolate", "çirkin": "ugly", "çocuk": "child", "çok": "very",
+            "dağ": "mountain", "daha": "more", "daire": "circle", "dakika": "minute", "dans": "dance", "dar": "narrow",
+            "davranmak": "behave", "dede": "grandfather", "defter": "notebook", "değil": "not", "değiştirmek": "change",
+            "denemek": "try", "deniz": "sea", "derece": "degree", "deri": "skin", "derin": "deep", "ders": "lesson",
+            "devam etmek": "continue", "dışarı": "outside", "diğer": "other", "dil": "language", "dinlemek": "listen",
+            "diş": "tooth", "doğru": "correct", "doğum günü": "birthday", "doktor": "doctor", "dolap": "cupboard",
+            "dolu": "full", "domates": "tomato", "dondurma": "ice cream", "dost": "friend", "dönmek": "return",
+            "dört": "four", "düşmek": "fall", "düşünmek": "think", "duvar": "wall", "duymak": "hear", "duygu": "feeling",
+            "dün": "yesterday", "dünya": "world", "düz": "straight", "düğme": "button", "dükkan": "shop",
+            "eğer": "if", "eğlenceli": "fun", "ekmek": "bread", "el": "hand", "elbise": "dress", "elma": "apple",
+            "en": "most", "enerji": "energy", "erken": "early", "erkek": "man", "eski": "old", "eşya": "stuff",
+            "et": "meat", "ev": "house", "evet": "yes", "fabrika": "factory", "fakat": "but", "farklı": "different",
+            "fare": "mouse", "film": "movie", "fincan": "cup", "fiyat": "price", "fotoğraf": "photo", "futbol": "football",
+            "gazete": "newspaper", "gece": "night", "geç": "late", "gelmek": "come", "gemi": "ship", "genç": "young",
+            "geniş": "wide", "gerçek": "real", "geri": "back", "getirmek": "bring", "gezegen": "planet", "gibi": "like",
+            "girmek": "enter", "gitmek": "go", "giymek": "wear", "göl": "lake", "gökyüzü": "sky", "göndermek": "send",
+            "görmek": "see", "göstermek": "show", "göz": "eye", "gözlük": "glasses", "gülmek": "laugh", "gümüş": "silver",
+            "gün": "day", "güneş": "sun", "gürültü": "noise", "güçlü": "strong", "güzel": "beautiful",
+            "hafta": "week", "hala": "still", "halı": "carpet", "hangi": "which", "hasta": "sick", "hata": "mistake",
+            "hava": "weather", "havlu": "towel", "havuç": "carrot", "havuz": "pool", "hayat": "life", "hayvan": "animal",
+            "hazır": "ready", "hediye": "gift", "hemşire": "nurse", "henüz": "yet", "her": "every", "herkes": "everyone",
+            "her zaman": "always", "hesap": "bill", "hızlı": "fast", "hiç": "never", "hikaye": "story",
+            "hissetmek": "feel", "hoş": "nice", "ıslak": "wet", "ışık": "light", "iç": "inside", "içmek": "drink",
+            "için": "for", "iğne": "needle", "iki": "two", "ile": "with", "ilk": "first", "inmek": "get off",
+            "insan": "human", "ip": "rope", "isim": "name", "istemek": "want", "iş": "work", "işaret": "sign",
+            "itmek": "push", "iyi": "good", "izin": "permission", "jeton": "coin", "kahve": "coffee", "kahverengi": "brown",
+            "kalabalık": "crowded", "kaldırmak": "lift", "kalem": "pen", "kalp": "heart", "kan": "blood",
+            "kapalı": "closed", "kapı": "door", "kar": "snow", "kardeş": "sibling", "karşı": "against",
+            "karpuz": "watermelon", "kaşık": "spoon", "kat": "floor", "kavga": "fight", "kaybetmek": "lose",
+            "kedi": "cat", "kelime": "word", "kemik": "bone", "kenar": "edge", "kendi": "own", "kağıt": "paper",
+            "kırmızı": "red", "kısa": "short", "kış": "winter", "kız": "girl", "kızgın": "angry", "kim": "who",
+            "kirli": "dirty", "kitap": "book", "koku": "smell", "kol": "arm", "kolay": "easy", "koltuk": "armchair",
+            "komik": "funny", "konuşmak": "speak", "korkmak": "be afraid", "koşmak": "run", "kötü": "bad",
+            "köy": "village", "köpek": "dog", "köprü": "bridge", "köşe": "corner", "kral": "king", "kulak": "ear",
+            "kullanmak": "use", "kum": "sand", "kuru": "dry", "kutu": "box", "kuzey": "north", "kuş": "bird",
+            "küçük": "small", "kürek": "shovel", "lamba": "lamp", "limon": "lemon", "lütfen": "please",
+            "mavi": "blue", "merdiven": "stairs", "merhaba": "hello", "merkez": "center", "meşgul": "busy",
+            "meyve": "fruit", "mide": "stomach", "milyon": "million", "mor": "purple", "mutfak": "kitchen",
+            "mutlu": "happy", "müzik": "music", "nasıl": "how", "ne": "what", "neden": "why", "nehir": "river",
+        };
+        const dictionaryEnToTr = {};
+        for (const key in dictionaryTrToEn) { dictionaryEnToTr[dictionaryTrToEn[key]] = key; }
+        const wordInput = document.getElementById('wordInput');
+        const trToEnBtn = document.getElementById('trToEnBtn');
+        const enToTrBtn = document.getElementById('enToTrBtn');
+        const translationResult = document.getElementById('translationResult');
+        function translate(dictionary, languageName) {
+            const word = wordInput.value.toLowerCase().trim();
+            if(word === '') { translationResult.textContent = 'Lütfen bir kelime yazın.'; return; }
+            if (dictionary[word]) {
+                translationResult.textContent = `"${word}" kelimesinin ${languageName}: ${dictionary[word]}`;
+            } else {
+                translationResult.textContent = `Sözlükte "${word}" kelimesi bulunamadı.`;
+            }
+            wordInput.value = '';
+        }
+        trToEnBtn.addEventListener('click', () => translate(dictionaryTrToEn, "İngilizcesi"));
+        enToTrBtn.addEventListener('click', () => translate(dictionaryEnToTr, "Türkçesi"));
+        wordInput.addEventListener('keyup', (event) => { if (event.key === "Enter") { translate(dictionaryTrToEn, "İngilizcesi"); }});
+
         // --- SORU-CEVAP BÖLÜMÜ ---
         const questionInput = document.getElementById('questionInput');
         const askBtn = document.getElementById('askBtn');
         const answerResult = document.getElementById('answerResult');
-        
-        // Bildiğim sorular ve cevapları (100+ soru!)
         const knownQuestions = {
-            // Önceki Sorular
             "merhaba": "Merhaba! Sana nasıl yardımcı olabilirim?",
             "nasılsın": "Harika bir gün geçiriyorum, sorduğun için teşekkürler!",
             "türkiye'nin başkenti neresi": "Ankara! Mustafa Kemal Atatürk'ün anıt mezarı Anıtkabir de orada.",
@@ -183,9 +369,6 @@
             "10 kere 10 kaç eder": "100 eder! Matematik çok eğlenceli.",
             "ben kimim": "Sen bu harika sitenin yaratıcısı Yamaç'sın!",
             "dünyanın en yüksek dağı hangisi": "Everest Dağı! Himalayalarda bulunuyor ve zirvesi bulutların bile üzerinde.",
-            
-            // 100 Yeni Soru
-            // Coğrafya
             "en kalabalık ülke hangisi": "Çin. Ancak Hindistan'ın nüfusu da çok yakın ve onu geçmesi bekleniyor.",
             "en büyük okyanus hangisi": "Büyük Okyanus, yani Pasifik Okyanusu. Dünyadaki okyanusların neredeyse yarısını kaplar.",
             "amazon nehri hangi kıtadadır": "Güney Amerika kıtasındadır ve dünyanın en uzun nehirlerinden biridir.",
@@ -196,8 +379,6 @@
             "kaç kıta var": "7 kıta vardır: Asya, Avrupa, Afrika, Kuzey Amerika, Güney Amerika, Avustralya ve Antarktika.",
             "en soğuk kıta hangisi": "Antarktika. Tamamı buzullarla kaplıdır.",
             "nil nehri nerededir": "Afrika'da bulunur ve dünyanın en uzun nehri olarak kabul edilir.",
-            
-            // Bilim
             "suyun formülü nedir": "H2O. İki hidrojen ve bir oksijen atomundan oluşur.",
             "insan vücudunda kaç kemik vardır": "Yetişkin bir insanın iskeletinde 206 kemik bulunur.",
             "ışık hızı nedir": "Saniyede yaklaşık 300.000 kilometredir. Evrendeki en yüksek hızdır.",
@@ -208,8 +389,6 @@
             "dinazorlar ne zaman yaşadı": "Milyonlarca yıl önce, Mezozoik Zaman'da yaşadılar.",
             "bir arının kaç gözü vardır": "Bir arının tam 5 gözü vardır!",
             "ses hızı ne kadardır": "Havada saniyede yaklaşık 343 metredir.",
-            
-            // Tarih
             "yazıyı kim buldu": "Sümerler, M.Ö. 3500'lerde çivi yazısını icat ederek tarihi başlattılar.",
             "istanbul'u kim fethetti": "Fatih Sultan Mehmet, 1453 yılında İstanbul'u fethetti.",
             "atatürk'ün anıtkabiri nerededir": "Türkiye'nin başkenti Ankara'dadır.",
@@ -220,8 +399,6 @@
             "kağıdı kim icat etti": "Çinliler, yaklaşık 2000 yıl önce icat ettiler.",
             "matbaayı kim icat etti": "Johannes Gutenberg, modern matbaayı 1440'larda icat etti.",
             "türkiye cumhuriyeti ne zaman kuruldu": "29 Ekim 1923'te kuruldu.",
-
-            // Genel Kültür ve Sanat
             "mona lisa tablosunu kim yaptı": "Leonardo da Vinci tarafından yapılmıştır ve şu an Paris'teki Louvre Müzesi'ndedir.",
             "beethoven kimdir": "Ünlü bir Alman bestecidir. Sağır olmasına rağmen harika besteler yapmıştır.",
             "olimpiyatlar kaç yılda bir yapılır": "Yaz ve Kış Olimpiyatları olmak üzere her dört yılda bir yapılır.",
@@ -232,8 +409,6 @@
             "mozart kimdir": "Harika bir müzik dehası olan Avusturyalı bir bestecidir. Henüz çocukken beste yapmaya başlamıştır.",
             "van gogh kimdir": "Hollandalı ünlü bir ressamdır. 'Yıldızlı Gece' en bilinen eserlerindendir.",
             "heykel nedir": "Taş, metal veya ahşap gibi malzemeleri yontarak yapılan üç boyutlu sanat eseridir.",
-
-            // Teknoloji ve Oyunlar
             "internet ne zaman bulundu": "1960'larda askeri bir proje olarak başladı ve zamanla tüm dünyaya yayıldı.",
             "ilk bilgisayar oyunu hangisidir": "Genellikle 1958 yapımı 'Tennis for Two' veya 1962 yapımı 'Spacewar!' olarak kabul edilir.",
             "minecraft ne zaman çıktı": "İlk halka açık sürümü 2009 yılında yayınlandı.",
@@ -244,8 +419,6 @@
             "drone nedir": "Uzaktan kumanda ile uçurulan insansız hava aracıdır.",
             "sosyal medya nedir": "İnsanların internet üzerinden iletişim kurduğu ve içerik paylaştığı platformlardır.",
             "en çok satan video oyunu hangisi": "Minecraft, dünya genelinde en çok satan video oyunudur.",
-
-            // Hayvanlar Alemi
             "bir ahtapotun kaç kalbi vardır": "Tam üç kalbi vardır!",
             "en hızlı koşan hayvan hangisidir": "Çita, karada yaşayan en hızlı hayvandır.",
             "en büyük hayvan hangisidir": "Mavi balina, hem karada hem de denizde yaşayan en büyük hayvandır.",
@@ -256,8 +429,6 @@
             "yarasalar kör müdür": "Hayır, kör değillerdir. Ayrıca avlanmak için ses dalgalarını (ekolokasyon) kullanırlar.",
             "bir filin hortumunda kaç kas vardır": "Yaklaşık 40.000 kas vardır! Bu yüzden çok esnek ve güçlüdür.",
             "panda ne yer": "Pandaların diyetinin %99'u bambudan oluşur.",
-            
-            // Uzay
             "güneş sisteminde kaç gezegen var": "8 gezegen vardır: Merkür, Venüs, Dünya, Mars, Jüpiter, Satürn, Uranüs ve Neptün.",
             "mars neden kırmızı gezegen olarak bilinir": "Yüzeyindeki demir oksit (pas) nedeniyle kırmızımsı bir renge sahiptir.",
             "ay neden parlar": "Ay, kendi ışığını üretmez. Sadece Güneş'ten aldığı ışığı yansıtır.",
@@ -268,8 +439,6 @@
             "ışık yılı nedir": "Işığın bir yılda katettiği mesafedir. Bir zaman birimi değil, mesafe birimidir.",
             "galaksi nedir": "Milyarlarca yıldız, gezegen, gaz ve toz bulutundan oluşan devasa sistemlerdir.",
             "biz hangi galakside yaşıyoruz": "Samanyolu Galaksisi'nde yaşıyoruz.",
-
-            // Vücudumuz
             "en büyük organımız hangisidir": "Deri, vücudumuzdaki en büyük ve en ağır organdır.",
             "kalp ne işe yarar": "Vücudumuza kan pompalar, böylece oksijen ve besinler her yere ulaşır.",
             "beyin ne işe yarar": "Düşünmemizi, hareket etmemizi, hissetmemizi ve vücudumuzu kontrol etmemizi sağlar.",
@@ -278,10 +447,8 @@
             "göz kırpmanın amacı nedir": "Gözlerimizi nemli ve temiz tutmak için göz kırparız.",
             "akciğerler ne işe yarar": "Nefes almamızı ve kanımıza oksijen karıştırmamızı sağlar.",
             "mide ne işe yarar": "Yediğimiz yiyecekleri sindirir ve enerjiye dönüştürür.",
-"dna nedir": "Canlıların genetik bilgilerini taşıyan bir moleküldür. Saç rengimizden boyumuza kadar her şeyi belirler.",
+            "dna nedir": "Canlıların genetik bilgilerini taşıyan bir moleküldür. Saç rengimizden boyumuza kadar her şeyi belirler.",
             "kemikler neden serttir": "Kalsiyum minerali sayesinde serttir ve vücudumuza destek olurlar.",
-
-            // Eğlenceli Bilgiler
             "deniz yıldızlarının beyni var mıdır": "Hayır, deniz yıldızlarının beyni yoktur.",
             "bir salyangoz ne kadar uyuyabilir": "Koşullara bağlı olarak üç yıla kadar uyuyabilir!",
             "en uzun kelime hangisidir": "Türkçedeki en uzun kelimelerden biri 'muvaffakiyetsizleştiricileştiriveremeyebileceklerimizdenmişsinizcesine'dir.",
@@ -293,8 +460,6 @@
             "yıldızlar neden yanıp sönüyor gibi görünür": "Dünya'nın atmosferindeki hareketlilik yüzünden bize öyle gelir. Aslında sürekli parlarlar.",
             "en komik hayvan hangisi": "Bu kişiden kişiye değişir ama su samurları ve mirketler genellikle çok komik bulunur!",
         };
-        
-        // Komik cevaplar (bilemediğimde bunlardan birini seçeceğim)
         const funnyAnswers = [
             "Bu soru benim işlemcimi biraz yaktı, bir sonrakine geçelim mi?",
             "Kristal küreme baktım ama cevap biraz bulanık görünüyor.",
@@ -305,75 +470,19 @@
             "Buna cevap vermeden önce avukatıma danışmak istiyorum.",
             "Harika bir soru! Cevabını bulduğunda bana da söyler misin?"
         ];
-        
         function answerQuestion() {
             const question = questionInput.value.toLowerCase().trim();
-            
-            if (question === '') {
-                answerResult.textContent = "Lütfen bir soru yazmayı unutma!";
-                return;
-            }
-            
+            if (question === '') { answerResult.textContent = "Lütfen bir soru yazmayı unutma!"; return; }
             if (knownQuestions[question]) {
                 answerResult.textContent = knownQuestions[question];
             } else {
                 const randomIndex = Math.floor(Math.random() * funnyAnswers.length);
                 answerResult.textContent = funnyAnswers[randomIndex];
             }
-            
             questionInput.value = '';
         }
-
         askBtn.addEventListener('click', answerQuestion);
-        questionInput.addEventListener('keyup', (event) => {
-            if (event.key === "Enter") {
-                answerQuestion();
-            }
-        });
-        
-    </script>
-    
-    <script>
-    (function() {
-        // Bu script, yukarıdaki kısaltılmış HTML bölümlerini tam içerikleriyle doldurur.
-        document.querySelector('header').innerHTML = `<a href="#hero" class="logo">Yamaç'ın Kodu</a><nav class="main-nav"><ul><li><a href="#hero">Ana Sayfa</a></li><li><a href="#hakkinda">Hakkında</a></li><li><a href="#projelerim">Projelerim</a></li><li><a href="#iletisim">İletişim</a></li></ul></nav>`;
-        document.querySelector('#hero').innerHTML = `<div class="hero-content"><h1>Merhaba, ben Yamaç!</h1><p>Hayallerini koda dönüştüren bir maceraperest.</p></div>`;
-        document.getElementById('hakkinda').innerHTML = `<div class="card"><h2>Ben Kimim?</h2><p>Adım Yamaç, 10 yaşındayım ve İkin Koleji'nde öğrenciyim. Bilgisayarlar, oyunlar ve yeni şeyler yaratmak en büyük tutkum. Bu web sitesi, benim dijital dünyadaki ilk büyük adımım!</p></div>`;
-        document.getElementById('projelerim').innerHTML = `<div class="card"><h2>Projelerim</h2><div class="projects-grid"><div class="project-card"><h3>🤖 Robotik Kodlama Macerası</h3><p>LEGO Mindstorms setimle yaptığım ve basit komutlarla hareket ettirdiğim robotum. Engellerden kaçabiliyor ve renkleri tanıyabiliyor.</p></div><div class="project-card"><h3>🎨 Piksel Sanatı Galerisi</h3><p>Piskel gibi araçlar kullanarak yarattığım 8-bit karakterler ve animasyonlar. Eski video oyunlarının ruhunu yakalamaya çalıştım.</p></div><div class="project-card"><h3>🎵 Basit Müzik Oluşturucu</h3><p>Scratch kullanarak farklı notalara tıklayarak kendi müziğini yapabileceğin basit bir uygulama geliştirdim. Yaratıcılığını konuştur!</p></div></div></div>`;
-        document.getElementById('ceviri').innerHTML = `<div class="card"><h2>Hızlı Çevirmen</h2><div class="interactive-box"><input type="text" id="wordInput" placeholder="Bir kelime yaz..."><div id="translator-buttons"><button class="btn" id="trToEnBtn">Türkçe'den İngilizce'ye</button><button class="btn" id="enToTrBtn">İngilizce'den Türkçe'ye</button></div><p id="translationResult" class="result-text">Çeviri burada görünecek.</p></div></div>`;
-        document.getElementById('soru-cevap').innerHTML = `<div class="card"><h2>Bana Bir Soru Sor</h2><p>Merak ettiğin bir şey var mı? Belki cevabını biliyorumdur!</p><div class="interactive-box"><input type="text" id="questionInput" placeholder="Sorunu buraya yaz..."><button class="btn" id="askBtn">Cevapla!</button><p id="answerResult" class="result-text">Cevabım burada görünecek.</p></div></div>`;
-        document.getElementById('izleme').innerHTML = `<div class="card"><h2>İzleme Keyfi</h2><p>Sevdiğin filmlerden fragmanlar ve eğlenceli çizgi film bölümleri seni bekliyor!</p><div class="video-wrapper"><h4>Minecraft Filmi Fragmanı</h4><div class="media-container"><iframe src="https://www.youtube.com/embed/8B1EtVPBSMw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div></div><div class="video-wrapper"><h4>Bluey Dizisi Türkçe Bölümleri</h4><p>Bluey, Bingo ve aileleriyle eğlenceli maceralara Türkçe olarak katıl!</p><div class="media-container"><iframe src="https://www.youtube.com/embed/7eoDtneR3Os" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div></div></div>`;
-        document.getElementById('oyunlarim').innerHTML = `<div class="card"><h2>Oyunlarım</h2><p>İşte Scratch'te yaptığım oyunlar. Denemek ister misin?</p><div class="game-wrapper"><h4>Oyun 1: Zıplayan Top</h4><div class="media-container"><iframe src="https://scratch.mit.edu/projects/1230577085/embed" allowtransparency="true" width="485" height="402" frameborder="0" scrolling="no" allowfullscreen></iframe></div></div><div class="game-wrapper"><h4>Oyun 2: Uzaylı Macerası</h4><div class="media-container"><iframe src="https://scratch.mit.edu/projects/1188222105/embed" allowtransparency="true" width="485" height="402" frameborder="0" scrolling="no" allowfullscreen></iframe></div></div></div>`;
-        document.getElementById('iletisim').innerHTML = `<div class="card"><h2>Bana Ulaş</h2><p>Fikirlerin veya projeler hakkında konuşmak istersen, aşağıdaki formu doldurabilirsin.</p><form class="contact-form" action="mailto:senin-emailin@example.com?subject=Web Siteden Mesaj" method="post" enctype="text/plain"><input type="text" name="isim" placeholder="Adın" required><input type="email" name="email" placeholder="E-posta Adresin" required><textarea name="mesaj" placeholder="Mesajın..." required></textarea><button type="submit" class="btn">Gönder</button></form></div>`;
-        document.querySelector('footer').innerHTML = `<p>&copy; 2025 Yamaç'ın Dünyası | Tüm hakları saklıdır.</p>`;
-        // Çok uzun çeviri sözlüğünü script'e tekrar ekle. Bu, sayfanın işlevselliğini korur.
-        const fullDict = {"a":"a","acele etmek":"hurry",/* ...tüm kelimeler... */"nehir":"river"};
-        const translatorScriptContent = `
-            const dictionaryTrToEn = ${JSON.stringify(fullDict)};
-            const dictionaryEnToTr = {};
-            for (const key in dictionaryTrToEn) { dictionaryEnToTr[dictionaryTrToEn[key]] = key; }
-            const wordInput = document.getElementById('wordInput');
-            const trToEnBtn = document.getElementById('trToEnBtn');
-            const enToTrBtn = document.getElementById('enToTrBtn');
-            const translationResult = document.getElementById('translationResult');
-            function translate(dictionary, languageName) {
-                const word = wordInput.value.toLowerCase().trim();
-                if(word === '') { translationResult.textContent = 'Lütfen bir kelime yazın.'; return; }
-                if (dictionary[word]) {
-                    translationResult.textContent = \`"\${word}" kelimesinin \${languageName}: \${dictionary[word]}\`;
-                } else {
-                    translationResult.textContent = \`Sözlükte "\${word}" kelimesi bulunamadı.\`;
-                }
-                wordInput.value = '';
-            }
-            trToEnBtn.addEventListener('click', () => translate(dictionaryTrToEn, "İngilizcesi"));
-            enToTrBtn.addEventListener('click', () => translate(dictionaryEnToTr, "Türkçesi"));
-            wordInput.addEventListener('keyup', (event) => { if (event.key === "Enter") { translate(dictionaryTrToEn, "İngilizcesi"); }});
-        `;
-        // Mevcut script tag'inin içeriğini birleştir
-        const mainScript = document.querySelector('script');
-        mainScript.textContent = translatorScriptContent + mainScript.textContent;
-    })();
+        questionInput.addEventListener('keyup', (event) => { if (event.key === "Enter") { answerQuestion(); }});
     </script>
 </body>
 </html>
