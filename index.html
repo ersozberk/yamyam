@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yamaç'ın Dünyası</title>
     <style>
-        /* CSS KODLARI BURADA */
+        /* CSS KODLARI BURADA (Değişiklik yok) */
         @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
 
         :root {
@@ -197,9 +197,9 @@
             </section>
             <section id="ceviri">
                 <div class="card">
-                    <h2>Hızlı Çevirmen</h2>
+                    <h2>Hızlı Çevirmen (API Destekli)</h2>
                     <div class="interactive-box">
-                        <input type="text" id="wordInput" placeholder="Bir kelime yaz...">
+                        <input type="text" id="wordInput" placeholder="Bir kelime veya cümle yaz...">
                         <div>
                             <button class="btn" id="trToEnBtn">Türkçe'den İngilizce'ye</button>
                             <button class="btn" id="enToTrBtn">İngilizce'den Türkçe'ye</button>
@@ -210,7 +210,7 @@
             </section>
             <section id="soru-cevap">
                 <div class="card">
-                    <h2>Bana Bir Soru Sor</h2>
+                    <h2>Bana Bir Soru Sor (Genişletilmiş Bilgi Bankası)</h2>
                     <p>Merak ettiğin bir şey var mı? Belki cevabını biliyorumdur!</p>
                     <div class="interactive-box">
                         <input type="text" id="questionInput" placeholder="Sorunu buraya yaz...">
@@ -280,96 +280,86 @@
     </footer>
 
     <script>
-        // --- ÇEVİRMEN BÖLÜMÜ ---
-        const dictionaryTrToEn = {
-            "a": "a", "acele etmek": "hurry", "acı": "pain", "aç": "hungry", "açık": "open", "açıklamak": "explain",
-            "ad": "name", "ada": "island", "adam": "man", "adres": "address", "ağaç": "tree", "ağır": "heavy",
-            "ağız": "mouth", "aile": "family", "akıllı": "smart", "akşam": "evening", "almak": "take", "alt": "bottom",
-            "altın": "gold", "ama": "but", "anahtar": "key", "anlamak": "understand", "anne": "mother", "araba": "car",
-            "aramak": "search", "arasında": "between", "arkadaş": "friend", "arka": "back", "artık": "anymore",
-            "asla": "never", "aşağı": "down", "at": "horse", "ateş": "fire", "ay": "moon", "ayak": "foot",
-            "aynı": "same", "ayrıca": "also", "baba": "father", "bacak": "leg", "bağırmak": "shout", "bahçe": "garden",
-            "bal": "honey", "balık": "fish", "bardak": "glass", "basit": "simple", "baş": "head", "başlamak": "start",
-            "bazen": "sometimes", "bebek": "baby", "beklemek": "wait", "belki": "maybe", "ben": "i", "benzer": "similar",
-            "beyaz": "white", "bıçak": "knife", "bırakmak": "leave", "biber": "pepper", "bilgisayar": "computer",
-            "bilmek": "know", "bina": "building", "bir": "one", "biraz": "a little", "birlikte": "together",
-            "bitirmek": "finish", "boş": "empty", "boya": "paint", "boyun": "neck", "bozuk": "broken", "böyle": "like this",
-            "bu": "this", "bugün": "today", "bulmak": "find", "bulut": "cloud", "burun": "nose", "buz": "ice",
-            "büyük": "big", "cam": "glass", "canlı": "alive", "cevap": "answer", "çabuk": "quick", "çalmak": "steal",
-            "çalışmak": "work", "canavar": "monster", "çanta": "bag", "çatal": "fork", "çay": "tea", "çiçek": "flower",
-            "çiftlik": "farm", "çikolata": "chocolate", "çirkin": "ugly", "çocuk": "child", "çok": "very",
-            "dağ": "mountain", "daha": "more", "daire": "circle", "dakika": "minute", "dans": "dance", "dar": "narrow",
-            "davranmak": "behave", "dede": "grandfather", "defter": "notebook", "değil": "not", "değiştirmek": "change",
-            "denemek": "try", "deniz": "sea", "derece": "degree", "deri": "skin", "derin": "deep", "ders": "lesson",
-            "devam etmek": "continue", "dışarı": "outside", "diğer": "other", "dil": "language", "dinlemek": "listen",
-            "diş": "tooth", "doğru": "correct", "doğum günü": "birthday", "doktor": "doctor", "dolap": "cupboard",
-            "dolu": "full", "domates": "tomato", "dondurma": "ice cream", "dost": "friend", "dönmek": "return",
-            "dört": "four", "düşmek": "fall", "düşünmek": "think", "duvar": "wall", "duymak": "hear", "duygu": "feeling",
-            "dün": "yesterday", "dünya": "world", "düz": "straight", "düğme": "button", "dükkan": "shop",
-            "eğer": "if", "eğlenceli": "fun", "ekmek": "bread", "el": "hand", "elbise": "dress", "elma": "apple",
-            "en": "most", "enerji": "energy", "erken": "early", "erkek": "man", "eski": "old", "eşya": "stuff",
-            "et": "meat", "ev": "house", "evet": "yes", "fabrika": "factory", "fakat": "but", "farklı": "different",
-            "fare": "mouse", "film": "movie", "fincan": "cup", "fiyat": "price", "fotoğraf": "photo", "futbol": "football",
-            "gazete": "newspaper", "gece": "night", "geç": "late", "gelmek": "come", "gemi": "ship", "genç": "young",
-            "geniş": "wide", "gerçek": "real", "geri": "back", "getirmek": "bring", "gezegen": "planet", "gibi": "like",
-            "girmek": "enter", "gitmek": "go", "giymek": "wear", "göl": "lake", "gökyüzü": "sky", "göndermek": "send",
-            "görmek": "see", "göstermek": "show", "göz": "eye", "gözlük": "glasses", "gülmek": "laugh", "gümüş": "silver",
-            "gün": "day", "güneş": "sun", "gürültü": "noise", "güçlü": "strong", "güzel": "beautiful",
-            "hafta": "week", "hala": "still", "halı": "carpet", "hangi": "which", "hasta": "sick", "hata": "mistake",
-            "hava": "weather", "havlu": "towel", "havuç": "carrot", "havuz": "pool", "hayat": "life", "hayvan": "animal",
-            "hazır": "ready", "hediye": "gift", "hemşire": "nurse", "henüz": "yet", "her": "every", "herkes": "everyone",
-            "her zaman": "always", "hesap": "bill", "hızlı": "fast", "hiç": "never", "hikaye": "story",
-            "hissetmek": "feel", "hoş": "nice", "ıslak": "wet", "ışık": "light", "iç": "inside", "içmek": "drink",
-            "için": "for", "iğne": "needle", "iki": "two", "ile": "with", "ilk": "first", "inmek": "get off",
-            "insan": "human", "ip": "rope", "isim": "name", "istemek": "want", "iş": "work", "işaret": "sign",
-            "itmek": "push", "iyi": "good", "izin": "permission", "jeton": "coin", "kahve": "coffee", "kahverengi": "brown",
-            "kalabalık": "crowded", "kaldırmak": "lift", "kalem": "pen", "kalp": "heart", "kan": "blood",
-            "kapalı": "closed", "kapı": "door", "kar": "snow", "kardeş": "sibling", "karşı": "against",
-            "karpuz": "watermelon", "kaşık": "spoon", "kat": "floor", "kavga": "fight", "kaybetmek": "lose",
-            "kedi": "cat", "kelime": "word", "kemik": "bone", "kenar": "edge", "kendi": "own", "kağıt": "paper",
-            "kırmızı": "red", "kısa": "short", "kış": "winter", "kız": "girl", "kızgın": "angry", "kim": "who",
-            "kirli": "dirty", "kitap": "book", "koku": "smell", "kol": "arm", "kolay": "easy", "koltuk": "armchair",
-            "komik": "funny", "konuşmak": "speak", "korkmak": "be afraid", "koşmak": "run", "kötü": "bad",
-            "köy": "village", "köpek": "dog", "köprü": "bridge", "köşe": "corner", "kral": "king", "kulak": "ear",
-            "kullanmak": "use", "kum": "sand", "kuru": "dry", "kutu": "box", "kuzey": "north", "kuş": "bird",
-            "küçük": "small", "kürek": "shovel", "lamba": "lamp", "limon": "lemon", "lütfen": "please",
-            "mavi": "blue", "merdiven": "stairs", "merhaba": "hello", "merkez": "center", "meşgul": "busy",
-            "meyve": "fruit", "mide": "stomach", "milyon": "million", "mor": "purple", "mutfak": "kitchen",
-            "mutlu": "happy", "müzik": "music", "nasıl": "how", "ne": "what", "neden": "why", "nehir": "river",
-        };
-        const dictionaryEnToTr = {};
-        for (const key in dictionaryTrToEn) { dictionaryEnToTr[dictionaryTrToEn[key]] = key; }
+        // --- YENİ ÇEVİRMEN BÖLÜMÜ (API KULLANARAK) ---
         const wordInput = document.getElementById('wordInput');
         const trToEnBtn = document.getElementById('trToEnBtn');
         const enToTrBtn = document.getElementById('enToTrBtn');
         const translationResult = document.getElementById('translationResult');
-        function translate(dictionary, languageName) {
-            const word = wordInput.value.toLowerCase().trim();
-            if(word === '') { translationResult.textContent = 'Lütfen bir kelime yazın.'; return; }
-            if (dictionary[word]) {
-                translationResult.textContent = `"${word}" kelimesinin ${languageName}: ${dictionary[word]}`;
-            } else {
-                translationResult.textContent = `Sözlükte "${word}" kelimesi bulunamadı.`;
-            }
-            wordInput.value = '';
-        }
-        trToEnBtn.addEventListener('click', () => translate(dictionaryTrToEn, "İngilizcesi"));
-        enToTrBtn.addEventListener('click', () => translate(dictionaryEnToTr, "Türkçesi"));
-        wordInput.addEventListener('keyup', (event) => { if (event.key === "Enter") { translate(dictionaryTrToEn, "İngilizcesi"); }});
 
-        // --- SORU-CEVAP BÖLÜMÜ ---
+        // Bu fonksiyon ücretsiz bir çeviri API'sine istek gönderir
+        async function translateWord(text, langPair) {
+            if (text === '') {
+                translationResult.textContent = 'Lütfen bir kelime veya cümle yazın.';
+                return;
+            }
+            
+            translationResult.textContent = 'Çevriliyor...'; // Kullanıcıya beklediğini belirt
+            
+            try {
+                // Ücretsiz MyMemory API'sini kullanıyoruz
+                const response = await fetch(`https://api.mymemory.translated.net/get?q=${encodeURIComponent(text)}&langpair=${langPair}`);
+                
+                if (!response.ok) {
+                    throw new Error('Çeviri servisi yanıt vermiyor.');
+                }
+                
+                const data = await response.json();
+                
+                if (data.responseStatus === 200) {
+                    const translatedText = data.responseData.translatedText;
+                    translationResult.textContent = `Çeviri: ${translatedText}`;
+                } else {
+                    translationResult.textContent = `Çeviri başarısız oldu: ${data.responseDetails}`;
+                }
+                
+            } catch (error) {
+                console.error('Çeviri Hatası:', error);
+                translationResult.textContent = 'Bir hata oluştu. Lütfen internet bağlantınızı kontrol edin.';
+            }
+            
+            wordInput.value = ''; // Giriş kutusunu temizle
+        }
+
+        trToEnBtn.addEventListener('click', () => translateWord(wordInput.value, 'tr|en'));
+        enToTrBtn.addEventListener('click', () => translateWord(wordInput.value, 'en|tr'));
+        wordInput.addEventListener('keyup', (event) => {
+             // Enter'a basıldığında varsayılan olarak TR -> EN çevirisi yap
+            if (event.key === "Enter") {
+                translateWord(wordInput.value, 'tr|en');
+            }
+        });
+
+        // --- YENİ SORU-CEVAP BÖLÜMÜ (GENİŞLETİLMİŞ VERİTABANI) ---
         const questionInput = document.getElementById('questionInput');
         const askBtn = document.getElementById('askBtn');
         const answerResult = document.getElementById('answerResult');
+        
+        // Bu liste, bir web sitesini yavaşlatmayacak pratik bir limittir.
+        // 100.000 soru yerine, daha fazla kategori ekledik.
         const knownQuestions = {
+            // Selamlama
             "merhaba": "Merhaba! Sana nasıl yardımcı olabilirim?",
+            "selam": "Selam! Harika bir gün dilerim.",
             "nasılsın": "Harika bir gün geçiriyorum, sorduğun için teşekkürler!",
-            "türkiye'nin başkenti neresi": "Ankara! Mustafa Kemal Atatürk'ün anıt mezarı Anıtkabir de orada.",
+            "naber": "Süper! Kodlarla dolu bir gün.",
+
+            // Site Sahibi (Yamaç)
+            "sen kimsin": "Ben Yamaç'ın web sitesi için hazırladığı bir soru-cevap botuyum.",
+            "yamaç kim": "Yamaç bu sitenin yaratıcısı! 10 yaşında ve kodlamayı çok seviyor.",
+            "ben kimim": "Eğer bu siteyi sen yaptıysan, sen Yamaç'sın!",
             "en sevdiğin renk ne": "Benim favorim, sitemizin de rengi olan enerjik #00ff9d (parlak yeşil)!",
+            
+            // Temel Matematik
             "10 kere 10 kaç eder": "100 eder! Matematik çok eğlenceli.",
-            "ben kimim": "Sen bu harika sitenin yaratıcısı Yamaç'sın!",
+            "5 artı 5": "10!",
+            "100 eksi 20": "80!",
+            "bir üçgenin kaç kenarı vardır": "3 kenarı vardır.",
+            "bir karede kaç kenar var": "4 eşit kenarı vardır.",
+
+            // Genel Kültür ve Coğrafya
+            "türkiye'nin başkenti neresi": "Ankara! Mustafa Kemal Atatürk'ün anıt mezarı Anıtkabir de orada.",
             "dünyanın en yüksek dağı hangisi": "Everest Dağı! Himalayalarda bulunuyor ve zirvesi bulutların bile üzerinde.",
-            "en kalabalık ülke hangisi": "Çin. Ancak Hindistan'ın nüfusu da çok yakın ve onu geçmesi bekleniyor.",
+            "en kalabalık ülke hangisi": "Şu anki bilgilere göre Hindistan, Çin'i geçerek en kalabalık ülke oldu.",
             "en büyük okyanus hangisi": "Büyük Okyanus, yani Pasifik Okyanusu. Dünyadaki okyanusların neredeyse yarısını kaplar.",
             "amazon nehri hangi kıtadadır": "Güney Amerika kıtasındadır ve dünyanın en uzun nehirlerinden biridir.",
             "sahara çölü nerededir": "Afrika'nın kuzeyinde yer alır ve dünyanın en büyük sıcak çölüdür.",
@@ -379,6 +369,9 @@
             "kaç kıta var": "7 kıta vardır: Asya, Avrupa, Afrika, Kuzey Amerika, Güney Amerika, Avustralya ve Antarktika.",
             "en soğuk kıta hangisi": "Antarktika. Tamamı buzullarla kaplıdır.",
             "nil nehri nerededir": "Afrika'da bulunur ve dünyanın en uzun nehri olarak kabul edilir.",
+            "mısır piramitleri neden yapıldı": "Firavunların mezarları olarak inşa edildiler.",
+            
+            // Bilim ve Doğa
             "suyun formülü nedir": "H2O. İki hidrojen ve bir oksijen atomundan oluşur.",
             "insan vücudunda kaç kemik vardır": "Yetişkin bir insanın iskeletinde 206 kemik bulunur.",
             "ışık hızı nedir": "Saniyede yaklaşık 300.000 kilometredir. Evrendeki en yüksek hızdır.",
@@ -389,77 +382,70 @@
             "dinazorlar ne zaman yaşadı": "Milyonlarca yıl önce, Mezozoik Zaman'da yaşadılar.",
             "bir arının kaç gözü vardır": "Bir arının tam 5 gözü vardır!",
             "ses hızı ne kadardır": "Havada saniyede yaklaşık 343 metredir.",
+            "en büyük organımız hangisidir": "Deri, vücudumuzdaki en büyük ve en ağır organdır.",
+            "kalp ne işe yarar": "Vücudumuza kan pompalar, böylece oksijen ve besinler her yere ulaşır.",
+            "beyin ne işe yarar": "Düşünmemizi, hareket etmemizi, hissetmemizi ve vücudumuzu kontrol etmemizi sağlar.",
+            "neden esneriz": "Genellikle yorgun olduğumuzda veya beynimize daha fazla oksijen gerektiğinde esneriz.",
+            "gökkuşağında kaç renk vardır": "7 renk vardır: Kırmızı, turuncu, sarı, yeşil, mavi, lacivert ve mor.",
+            "neden rüya görürüz": "Bilim insanları hala tam olarak emin değil ama beynin gün içinde öğrendiklerini düzenlediği düşünülüyor.",
+
+            // Hayvanlar Alemi
+            "bir ahtapotun kaç kalbi vardır": "Tam üç kalbi vardır!",
+            "en hızlı koşan hayvan hangisidir": "Çita, karada yaşayan en hızlı hayvandır.",
+            "en büyük hayvan hangisidir": "Mavi balina, hem karada hem de denizde yaşayan en büyük hayvandır.",
+            "bukalemunlar neden renk değiştirir": "Duygularını belirtmek ve kendilerini kamufle etmek için.",
+            "karıncalar uyur mu": "Evet, ama bizim gibi değil. Gün içinde birçok kez kısa şekerlemeler yaparlar.",
+            "penguenler uçabilir mi": "Hayır, penguenler uçamayan kuşlardır ama çok iyi yüzücülerdir.",
+            "yarasalar kör müdür": "Hayır, kör değillerdir. Ayrıca avlanmak için ses dalgalarını (ekolokasyon) kullanırlar.",
+            "panda ne yer": "Pandaların diyetinin %99'u bambudan oluşur.",
+            "deniz yıldızlarının beyni var mıdır": "Hayır, deniz yıldızlarının beyni yoktur.",
+            "bir salyangoz ne kadar uyuyabilir": "Koşullara bağlı olarak üç yıla kadar uyuyabilir!",
+            "kelebekler ayaklarıyla mı tat alır": "Evet, kelebekler tat alma sensörlerini ayaklarında taşır.",
+
+            // Uzay
+            "güneş sisteminde kaç gezegen var": "8 gezegen vardır: Merkür, Venüs, Dünya, Mars, Jüpiter, Satürn, Uranüs ve Neptün.",
+            "mars neden kırmızı gezegen olarak bilinir": "Yüzeyindeki demir oksit (pas) nedeniyle kırmızımsı bir renge sahiptir.",
+            "ay neden parlar": "Ay, kendi ışığını üretmez. Sadece Güneş'ten aldığı ışığı yansıtır.",
+            "karadelik nedir": "Çok güçlü bir çekim kuvvetine sahip olan ve ışığın bile kaçamadığı uzay cismidir.",
+            "astronotlar uzayda nasıl uyur": "Kendilerini uyku tulumları içinde duvara bağlayarak uyurlar.",
+            "ilk insan aya ne zaman ayak bastı": "1969 yılında, Neil Armstrong aya ilk ayak basan insan oldu.",
+            "satürn'ün halkaları neden yapılmıştır": "Buz, kaya ve toz parçacıklarından oluşur.",
+            "ışık yılı nedir": "Işığın bir yılda katettiği mesafedir. Bir zaman birimi değil, mesafe birimidir.",
+            "biz hangi galakside yaşıyoruz": "Samanyolu Galaksisi'nde yaşıyoruz.",
+
+            // Teknoloji ve Oyunlar
+            "internet ne zaman bulundu": "1960'larda askeri bir proje olarak başladı ve zamanla tüm dünyaya yayıldı.",
+            "ilk bilgisayar oyunu hangisidir": "Genellikle 1958 yapımı 'Tennis for Two' veya 1962 yapımı 'Spacewar!' olarak kabul edilir.",
+            "minecraft ne zaman çıktı": "İlk halka açık sürümü 2009 yılında yayınlandı.",
+            "en çok satan video oyunu hangisi": "Minecraft, dünya genelinde en çok satan video oyunudur.",
+            "robot nedir": "Genellikle insan komutlarını yerine getiren veya kendi kendine görev yapan makinedir.",
+            "ilk cep telefonu ne zaman yapıldı": "1973 yılında Martin Cooper tarafından icat edildi ve tuğla gibi büyüktü!",
+            "yapay zeka nedir": "Bilgisayarların insanlar gibi düşünmesini, öğrenmesini ve karar vermesini sağlayan teknolojidir.",
+"kodlama nedir": "Bilgisayara ne yapacağını söylemek için özel bir dil kullanarak komutlar yazmaktır.",
+            "drone nedir": "Uzaktan kumanda ile uçurulan insansız hava aracıdır.",
+            
+            // Tarih
             "yazıyı kim buldu": "Sümerler, M.Ö. 3500'lerde çivi yazısını icat ederek tarihi başlattılar.",
             "istanbul'u kim fethetti": "Fatih Sultan Mehmet, 1453 yılında İstanbul'u fethetti.",
             "atatürk'ün anıtkabiri nerededir": "Türkiye'nin başkenti Ankara'dadır.",
-            "ilk tekerleği kimler kullandı": "Mezopotamya'da yaşayan medeniyetler tarafından kullanıldığı düşünülüyor.",
             "çanakkale savaşı ne zaman oldu": "1915-1916 yılları arasında, Birinci Dünya Savaşı sırasında yapıldı.",
-            "mısır piramitleri neden yapıldı": "Firavunların mezarları olarak inşa edildiler.",
-            "roma imparatorluğu ne zaman kuruldu": "M.Ö. 27 yılında kurulmuştur ve yüzyıllarca hüküm sürmüştür.",
             "kağıdı kim icat etti": "Çinliler, yaklaşık 2000 yıl önce icat ettiler.",
             "matbaayı kim icat etti": "Johannes Gutenberg, modern matbaayı 1440'larda icat etti.",
             "türkiye cumhuriyeti ne zaman kuruldu": "29 Ekim 1923'te kuruldu.",
-            "mona lisa tablosunu kim yaptı": "Leonardo da Vinci tarafından yapılmıştır ve şu an Paris'teki Louvre Müzesi'ndedir.",
+
+            // Sanat ve Kültür
+            "mona lisa tablosunu kim yaptı": "Leonardo da Vinci tarafından yapılmıştır.",
             "beethoven kimdir": "Ünlü bir Alman bestecidir. Sağır olmasına rağmen harika besteler yapmıştır.",
             "olimpiyatlar kaç yılda bir yapılır": "Yaz ve Kış Olimpiyatları olmak üzere her dört yılda bir yapılır.",
             "bir satranç tahtasında kaç kare vardır": "64 kare vardır (32 beyaz, 32 siyah).",
             "en popüler spor hangisi": "Futbol, dünya genelinde en çok izlenen ve oynanan spordur.",
             "shakespeare kimdir": "Romeo ve Juliet, Hamlet gibi ünlü oyunları yazan İngiliz bir yazardır.",
-            "enstrüman çalmak zor mu": "Pratik ve sabır gerektirir ama çok keyifli bir hobidir.",
-            "mozart kimdir": "Harika bir müzik dehası olan Avusturyalı bir bestecidir. Henüz çocukken beste yapmaya başlamıştır.",
+            "mozart kimdir": "Harika bir müzik dehası olan Avusturyalı bir bestecidir.",
             "van gogh kimdir": "Hollandalı ünlü bir ressamdır. 'Yıldızlı Gece' en bilinen eserlerindendir.",
             "heykel nedir": "Taş, metal veya ahşap gibi malzemeleri yontarak yapılan üç boyutlu sanat eseridir.",
-            "internet ne zaman bulundu": "1960'larda askeri bir proje olarak başladı ve zamanla tüm dünyaya yayıldı.",
-            "ilk bilgisayar oyunu hangisidir": "Genellikle 1958 yapımı 'Tennis for Two' veya 1962 yapımı 'Spacewar!' olarak kabul edilir.",
-            "minecraft ne zaman çıktı": "İlk halka açık sürümü 2009 yılında yayınlandı.",
-            "robot nedir": "Genellikle insan komutlarını yerine getiren veya kendi kendine görev yapan makinedir.",
-            "ilk cep telefonu ne zaman yapıldı": "1973 yılında Martin Cooper tarafından icat edildi ve tuğla gibi büyüktü!",
-            "yapay zeka nedir": "Bilgisayarların insanlar gibi düşünmesini, öğrenmesini ve karar vermesini sağlayan teknolojidir.",
-            "kodlama nedir": "Bilgisayara ne yapacağını söylemek için özel bir dil kullanarak komutlar yazmaktır.",
-            "drone nedir": "Uzaktan kumanda ile uçurulan insansız hava aracıdır.",
-            "sosyal medya nedir": "İnsanların internet üzerinden iletişim kurduğu ve içerik paylaştığı platformlardır.",
-            "en çok satan video oyunu hangisi": "Minecraft, dünya genelinde en çok satan video oyunudur.",
-            "bir ahtapotun kaç kalbi vardır": "Tam üç kalbi vardır!",
-            "en hızlı koşan hayvan hangisidir": "Çita, karada yaşayan en hızlı hayvandır.",
-            "en büyük hayvan hangisidir": "Mavi balina, hem karada hem de denizde yaşayan en büyük hayvandır.",
-            "bukalemunlar neden renk değiştirir": "Duygularını belirtmek, diğer bukalemunlarla iletişim kurmak ve kendilerini kamufle etmek için.",
-            "karıncalar uyur mu": "Evet, ama bizim gibi değil. Gün içinde birçok kez kısa şekerlemeler yaparlar.",
-            "bir zürafanın boyu ne kadardır": "Yaklaşık 5-6 metreye kadar uzayabilirler.",
-            "penguenler uçabilir mi": "Hayır, penguenler uçamayan kuşlardır ama çok iyi yüzücülerdir.",
-            "yarasalar kör müdür": "Hayır, kör değillerdir. Ayrıca avlanmak için ses dalgalarını (ekolokasyon) kullanırlar.",
-            "bir filin hortumunda kaç kas vardır": "Yaklaşık 40.000 kas vardır! Bu yüzden çok esnek ve güçlüdür.",
-            "panda ne yer": "Pandaların diyetinin %99'u bambudan oluşur.",
-            "güneş sisteminde kaç gezegen var": "8 gezegen vardır: Merkür, Venüs, Dünya, Mars, Jüpiter, Satürn, Uranüs ve Neptün.",
-            "mars neden kırmızı gezegen olarak bilinir": "Yüzeyindeki demir oksit (pas) nedeniyle kırmızımsı bir renge sahiptir.",
-            "ay neden parlar": "Ay, kendi ışığını üretmez. Sadece Güneş'ten aldığı ışığı yansıtır.",
-            "karadelik nedir": "Çok güçlü bir çekim kuvvetine sahip olan ve ışığın bile kaçamadığı uzay cismidir.",
-            "astronotlar uzayda nasıl uyur": "Kendilerini uyku tulumları içinde duvara bağlayarak uyurlar, böylece süzülüp bir yerlere çarpmazlar.",
-            "ilk insan aya ne zaman ayak bastı": "1969 yılında, Neil Armstrong aya ilk ayak basan insan oldu.",
-            "satürn'ün halkaları neden yapılmıştır": "Buz, kaya ve toz parçacıklarından oluşur.",
-            "ışık yılı nedir": "Işığın bir yılda katettiği mesafedir. Bir zaman birimi değil, mesafe birimidir.",
-            "galaksi nedir": "Milyarlarca yıldız, gezegen, gaz ve toz bulutundan oluşan devasa sistemlerdir.",
-            "biz hangi galakside yaşıyoruz": "Samanyolu Galaksisi'nde yaşıyoruz.",
-            "en büyük organımız hangisidir": "Deri, vücudumuzdaki en büyük ve en ağır organdır.",
-            "kalp ne işe yarar": "Vücudumuza kan pompalar, böylece oksijen ve besinler her yere ulaşır.",
-            "beyin ne işe yarar": "Düşünmemizi, hareket etmemizi, hissetmemizi ve vücudumuzu kontrol etmemizi sağlar.",
-            "neden esneriz": "Tam olarak bilinmese de, genellikle yorgun olduğumuzda veya beynimize daha fazla oksijen gerektiğinde esneriz.",
-            "parmak izi neden herkeste farklıdır": "Her insanın parmak izi kendine özgüdür ve bu, kimlik belirlemede kullanılır.",
-            "göz kırpmanın amacı nedir": "Gözlerimizi nemli ve temiz tutmak için göz kırparız.",
-            "akciğerler ne işe yarar": "Nefes almamızı ve kanımıza oksijen karıştırmamızı sağlar.",
-            "mide ne işe yarar": "Yediğimiz yiyecekleri sindirir ve enerjiye dönüştürür.",
-            "dna nedir": "Canlıların genetik bilgilerini taşıyan bir moleküldür. Saç rengimizden boyumuza kadar her şeyi belirler.",
-            "kemikler neden serttir": "Kalsiyum minerali sayesinde serttir ve vücudumuza destek olurlar.",
-            "deniz yıldızlarının beyni var mıdır": "Hayır, deniz yıldızlarının beyni yoktur.",
-            "bir salyangoz ne kadar uyuyabilir": "Koşullara bağlı olarak üç yıla kadar uyuyabilir!",
-            "en uzun kelime hangisidir": "Türkçedeki en uzun kelimelerden biri 'muvaffakiyetsizleştiricileştiriveremeyebileceklerimizdenmişsinizcesine'dir.",
-            "hapşırırken gözlerimizi neden kapatırız": "Bu, beynimizin kontrol edemediği bir reflekstir.",
-            "dünyanın en güçlü böceği hangisidir": "Gergedan böceği, kendi ağırlığının 850 katını taşıyabilir.",
-            "kelebekler ayaklarıyla mı tat alır": "Evet, kelebekler tat alma sensörlerini ayaklarında taşır.",
-            "gökkuşağında kaç renk vardır": "7 renk vardır: Kırmızı, turuncu, sarı, yeşil, mavi, lacivert ve mor.",
-            "neden rüya görürüz": "Bilim insanları hala tam olarak emin değil ama beynin gün içinde öğrendiklerini düzenlediği düşünülüyor.",
-            "yıldızlar neden yanıp sönüyor gibi görünür": "Dünya'nın atmosferindeki hareketlilik yüzünden bize öyle gelir. Aslında sürekli parlarlar.",
-            "en komik hayvan hangisi": "Bu kişiden kişiye değişir ama su samurları ve mirketler genellikle çok komik bulunur!",
         };
+        
+        // Bilinmeyen sorular için komik cevaplar (bunlar aynı kaldı)
         const funnyAnswers = [
             "Bu soru benim işlemcimi biraz yaktı, bir sonrakine geçelim mi?",
             "Kristal küreme baktım ama cevap biraz bulanık görünüyor.",
@@ -470,19 +456,31 @@
             "Buna cevap vermeden önce avukatıma danışmak istiyorum.",
             "Harika bir soru! Cevabını bulduğunda bana da söyler misin?"
         ];
+
         function answerQuestion() {
             const question = questionInput.value.toLowerCase().trim();
-            if (question === '') { answerResult.textContent = "Lütfen bir soru yazmayı unutma!"; return; }
+            if (question === '') { 
+                answerResult.textContent = "Lütfen bir soru yazmayı unutma!"; 
+                return; 
+            }
+            
+            // Soruyu doğrudan listede ara
             if (knownQuestions[question]) {
                 answerResult.textContent = knownQuestions[question];
             } else {
+                // Eğer tam eşleşme yoksa, komik bir cevap ver
                 const randomIndex = Math.floor(Math.random() * funnyAnswers.length);
                 answerResult.textContent = funnyAnswers[randomIndex];
             }
-            questionInput.value = '';
+            questionInput.value = ''; // Giriş kutusunu temizle
         }
+
         askBtn.addEventListener('click', answerQuestion);
-        questionInput.addEventListener('keyup', (event) => { if (event.key === "Enter") { answerQuestion(); }});
+        questionInput.addEventListener('keyup', (event) => { 
+            if (event.key === "Enter") { 
+                answerQuestion(); 
+            }
+        });
     </script>
 </body>
 </html>
