@@ -195,6 +195,7 @@
         .main-footer { text-align: center; padding: 20px; margin-top: 40px; background: var(--dark-glass); border-top: 2px solid var(--secondary-color); }
         
         
+        /* ===== S.S.S. (FAQ) BÖLÜMÜ STİLLERİ ===== */
         .faq-container {
             margin-top: 25px;
             text-align: left; /* Soruların sola dayalı olması için */
@@ -243,6 +244,8 @@
             border-top: 1px dashed var(--secondary-color);
             margin: 0;
         }
+
+
         @media(max-width: 768px) {
             .main-header { flex-direction: column; }
             .main-nav ul { flex-direction: column; text-align: center; margin-top: 10px; }
@@ -260,7 +263,8 @@
             <ul>
                 <li><a href="#hero">Ana Sayfa</a></li>
                 <li><a href="#hakkinda">Hakkında</a></li>
-                <li><a href="#sss">S.S.S.</a></li> <li><a href="#projelerim">Projelerim</a></li>
+                <li><a href="#sss">S.S.S.</a></li> 
+                <li><a href="#projelerim">Projelerim</a></li>
                 <li><a href="#izleme">İzleme</a></li> <li><a href="#muzik">Müzik</a></li> <li><a href="#iletisim">İletişim</a></li>
             </ul>
         </nav>
@@ -295,30 +299,84 @@
                             <summary>En sevdiğin video oyunu hangisi?</summary>
                             <p>En çok Minecraft ve Roblox oynamayı seviyorum. Kendi dünyalarımı tasarlamak harika!</p>
                         </details>
-    
+                        <details class="faq-item">
+                            <summary>Minecraft'ta yaptığın en gurur duyduğun yapı nedir?</summary>
+                            <p>...</p>
+                        </details>
+                        <details class="faq-item">
+                            <summary>Roblox'ta kendi oyununu (obby) yapmayı denedin mi?</summary>
+                            <p>...</p>
+                        </details>
+                        <details class="faq-item">
+                            <summary>Oyun oynarken en çok zorlandığın bölüm (boss) hangisiydi?</summary>
+                            <p>...</p>
+                        </details>
+
                         <details class="faq-item">
                             <summary>Kodlamayı nasıl ve nerede öğrendin?</summary>
                             <p>Ekin Koleji'ndeki derslerimde Scratch ve robotik kodlama ile başladım. Bu siteyi ise internetteki kaynaklardan (HTML, CSS ve JavaScript) öğrenerek kendim yaptım.</p>
                         </details>
-    
+                         <details class="faq-item">
+                            <summary>Bu web sitesini yaparken en çok hangi kısımda zorlandın?</summary>
+                            <p>...</p>
+                        </details>
                         <details class="faq-item">
                             <summary>Robotik projen (LEGO Mindstorms) tam olarak ne yapıyor?</summary>
                             <p>Robotum, önüne bir engel çıktığında ultrasonik sensörü sayesinde durup geri dönebiliyor. Ayrıca renk sensörü ile yerdeki siyah çizgiyi takip edebiliyor.</p>
                         </details>
-    
+                        <details class="faq-item">
+                            <summary>HTML mi yoksa CSS mi sence daha eğlenceli?</summary>
+                            <p>...</p>
+                        </details>
+                        <details class="faq-item">
+                            <summary>"Yamaç'ın Kodu" ismi nereden aklına geldi?</summary>
+                            <p>...</p>
+                        </details>
+                         <details class="faq-item">
+                            <summary>Gelecekte kodlamayla ilgili en büyük hedefin nedir?</summary>
+                            <p>...</p>
+                        </details>
+                        
                         <details class="faq-item">
                             <summary>Büyüyünce ne olmak istiyorsun?</summary>
                             <p>Oyun geliştiricisi veya yapay zeka mühendisi olmak istiyorum. Kendi oyunlarımı yapmayı hayal ediyorum.</p>
                         </details>
-    
+                        <details class="faq-item">
+                            <summary>En sevdiğin ders hangisi?</summary>
+                            <p>Tabii ki Bilişim Teknolojileri ve Matematik!</p>
+                        </details>
+                         <details class="faq-item">
+                            <summary>Okulda (Ekin Koleji) en sevdiğin etkinlik veya gezi neydi?</summary>
+                            <p>...</p>
+                        </details>
+                         <details class="faq-item">
+                            <summary>Sence yapay zeka ileride neleri değiştirecek?</summary>
+                            <p>...</p>
+                        </details>
+
                         <details class="faq-item">
                             <summary>Piksel sanatına neden ilgi duyuyorsun?</summary>
                             <p>Eski atari oyunlarının (retro) görünüşünü çok seviyorum. Basit karelerle bir karakter yaratmak çok eğlenceli.</p>
                         </details>
-    
                         <details class="faq-item">
-                            <summary>En sevdiğin ders hangisi?</summary>
-                            <p>Tabii ki Bilişim Teknolojileri ve Matematik!</p>
+                            <summary>Bir süper gücün olsaydı bu ne olurdu?</summary>
+                            <p>...</p>
+                        </details>
+                        <details class="faq-item">
+                            <summary>En sevdiğin yemek nedir?</summary>
+                            <p>...</p>
+                        </details>
+                        <details class="faq-item">
+                            <summary>En sevdiğin YouTube kanalı hangisi?</summary>
+                            <p>...</p>
+                        </details>
+                        <details class="faq-item">
+                            <summary>Hayalindeki tatil yeri neresi?</summary>
+                            <p>...</p>
+                        </details>
+                        <details class="faq-item">
+                            <summary>Okumayı sevdiğin bir kitap serisi var mı?</summary>
+                            <p>...</p>
                         </details>
     
                         </div>
@@ -547,8 +605,10 @@
         });
 
         // Sayfa yüklendiğinde ilk şarkıyı yükle (ama çalma)
-        audioPlayer.src = songs[0].src;
-        playlistItems[0].classList.add('active-song');
+        if (songs.length > 0) {
+            audioPlayer.src = songs[0].src;
+            playlistItems[0].classList.add('active-song');
+        }
         // İstersen ilk şarkı otomatik başlasın diye: playSong(0); 
 
 
