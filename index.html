@@ -194,6 +194,55 @@
 
         .main-footer { text-align: center; padding: 20px; margin-top: 40px; background: var(--dark-glass); border-top: 2px solid var(--secondary-color); }
         
+        
+        .faq-container {
+            margin-top: 25px;
+            text-align: left; /* Soruların sola dayalı olması için */
+        }
+        .faq-item {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid var(--primary-color);
+            border-radius: 8px;
+            margin-bottom: 10px;
+            overflow: hidden; /* Düzgün açılma efekti için */
+        }
+        .faq-item summary {
+            padding: 15px 20px;
+            cursor: pointer;
+            font-size: 22px;
+            font-weight: bold;
+            color: var(--primary-color);
+            position: relative; /* Ok ikonu için */
+            list-style: none; /* Varsayılan üçgeni kaldır */
+            transition: background-color 0.3s ease;
+        }
+        .faq-item summary:hover {
+            background: var(--dark-glass);
+        }
+        /* Tıklanabilir soruya bir ok ikonu ekleyelim */
+        .faq-item summary::after {
+            content: '▼'; /* Aşağı ok */
+            font-size: 16px;
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            transition: transform 0.3s ease;
+            color: var(--secondary-color);
+        }
+        /* Soru açıldığında oku yukarı çevir */
+        .faq-item[open] summary::after {
+            transform: translateY(-50%) rotate(180deg);
+        }
+        /* Cevabın (p) stili */
+        .faq-item p {
+            padding: 0 20px 20px 20px; /* Üst padding 'summary'de var */
+            font-size: 18px;
+            line-height: 1.7;
+            background: rgba(0, 0, 0, 0.1); /* Cevap arka planı hafif farklı */
+            border-top: 1px dashed var(--secondary-color);
+            margin: 0;
+        }
         @media(max-width: 768px) {
             .main-header { flex-direction: column; }
             .main-nav ul { flex-direction: column; text-align: center; margin-top: 10px; }
@@ -211,7 +260,7 @@
             <ul>
                 <li><a href="#hero">Ana Sayfa</a></li>
                 <li><a href="#hakkinda">Hakkında</a></li>
-                <li><a href="#projelerim">Projelerim</a></li>
+                <li><a href="#sss">S.S.S.</a></li> <li><a href="#projelerim">Projelerim</a></li>
                 <li><a href="#izleme">İzleme</a></li> <li><a href="#muzik">Müzik</a></li> <li><a href="#iletisim">İletişim</a></li>
             </ul>
         </nav>
@@ -233,6 +282,46 @@
                         Bilgisayarlar, oyunlar ve yeni şeyler yaratmak en büyük tutkum.
                         Bu web sitesi, benim dijital dünyadaki ilk büyük adımım!
                     </p>
+                </div>
+            </section>
+
+            <section id="sss">
+                <div class="card">
+                    <h2>Bana Sorduklarınız (S.S.S.)</h2>
+                    <p>Benim hakkımda, projelerim ve hobilerim hakkında merak edilenler!</p>
+                    <div class="faq-container">
+                        
+                        <details class="faq-item">
+                            <summary>En sevdiğin video oyunu hangisi?</summary>
+                            <p>En çok Minecraft ve Roblox oynamayı seviyorum. Kendi dünyalarımı tasarlamak harika!</p>
+                        </details>
+    
+                        <details class="faq-item">
+                            <summary>Kodlamayı nasıl ve nerede öğrendin?</summary>
+                            <p>Ekin Koleji'ndeki derslerimde Scratch ve robotik kodlama ile başladım. Bu siteyi ise internetteki kaynaklardan (HTML, CSS ve JavaScript) öğrenerek kendim yaptım.</p>
+                        </details>
+    
+                        <details class="faq-item">
+                            <summary>Robotik projen (LEGO Mindstorms) tam olarak ne yapıyor?</summary>
+                            <p>Robotum, önüne bir engel çıktığında ultrasonik sensörü sayesinde durup geri dönebiliyor. Ayrıca renk sensörü ile yerdeki siyah çizgiyi takip edebiliyor.</p>
+                        </details>
+    
+                        <details class="faq-item">
+                            <summary>Büyüyünce ne olmak istiyorsun?</summary>
+                            <p>Oyun geliştiricisi veya yapay zeka mühendisi olmak istiyorum. Kendi oyunlarımı yapmayı hayal ediyorum.</p>
+                        </details>
+    
+                        <details class="faq-item">
+                            <summary>Piksel sanatına neden ilgi duyuyorsun?</summary>
+                            <p>Eski atari oyunlarının (retro) görünüşünü çok seviyorum. Basit karelerle bir karakter yaratmak çok eğlenceli.</p>
+                        </details>
+    
+                        <details class="faq-item">
+                            <summary>En sevdiğin ders hangisi?</summary>
+                            <p>Tabii ki Bilişim Teknolojileri ve Matematik!</p>
+                        </details>
+    
+                        </div>
                 </div>
             </section>
             <section id="projelerim">
@@ -280,23 +369,23 @@
             </section>
             <section id="izleme">
                  <div class="card">
-                     <h2>İzleme Keyfi</h2>
-                     <p>Sevdiğin filmlerden fragmanlar ve eğlenceli çizgi film bölümleri seni bekliyor!</p>
+                      <h2>İzleme Keyfi</h2>
+                      <p>Sevdiğin filmlerden fragmanlar ve eğlenceli çizgi film bölümleri seni bekliyor!</p>
 
-                     <div class="video-wrapper">
-                         <h4>Minecraft Filmi Fragmanı</h4>
-                         <div class="media-container">
-                             <iframe src="https://www.youtube.com/embed/8B1EtVPBSMw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                         </div>
-                     </div>
+                      <div class="video-wrapper">
+                          <h4>Minecraft Filmi Fragmanı</h4>
+                          <div class="media-container">
+                              <iframe src="https://www.youtube.com/embed/8B1EtVPBSMw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                          </div>
+                      </div>
 
-                     <div class="video-wrapper">
-                         <h4>Bluey Dizisi Türkçe Bölümleri</h4>
-                         <p>Bluey, Bingo ve aileleriyle eğlenceli maceralara Türkçe olarak katıl!</p>
-                         <div class="media-container">
-                             <iframe src="https://www.youtube.com/embed/7eoDtneR3Os" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                         </div>
-                     </div>
+                      <div class="video-wrapper">
+                          <h4>Bluey Dizisi Türkçe Bölümleri</h4>
+                          <p>Bluey, Bingo ve aileleriyle eğlenceli maceralara Türkçe olarak katıl!</p>
+                          <div class="media-container">
+                              <iframe src="https://www.youtube.com/embed/7eoDtneR3Os" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                          </div>
+                      </div>
                  </div>
             </section>
             <section id="oyunlarim">
